@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "PeliTacos",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

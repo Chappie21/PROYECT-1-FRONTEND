@@ -1,0 +1,7 @@
+{
+  "name": "PeliTacos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
