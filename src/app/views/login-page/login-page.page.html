@@ -1,0 +1,44 @@
+<ion-content>
+  <div class="container">
+
+      <!-- Logo de la App -->
+      <div class="logoContainer">
+          <img class="logo" src="../../../assets/images/logo.png"/>
+      </div>
+
+      <!-- Formulario de inicio de sesion -->
+      <div class="cardForm">
+
+        <ion-label class="ion-text-center">
+          <h1>Inicio de Sesion</h1>
+        </ion-label>
+
+        <form [formGroup]="form">
+            <ion-list class="list-inputs">
+                <ion-item class="input">
+                    <ion-input
+                      formControlName="emailOrUser"
+                      required="true"
+                      placeholder="Email o Usuario"
+                    ></ion-input>
+                </ion-item>
+                <ion-item class="input">
+                    <ion-input
+                      formControlName="password"
+                      required="true"
+                      type="password"
+                      placeholder="Contraseña" 
+                    ></ion-input>
+                </ion-item>
+            </ion-list>
+
+            <ion-label color="medium" class="ion-text-center">¿Aun no tienes cuenta?</ion-label>
+            <ion-button color="primary" class="ion-margin-top" [disabled]="!form.valid">
+              Iniciar sesion
+            </ion-button>
+
+        </form>
+          
+      </div>
+  </div>
+</ion-content>

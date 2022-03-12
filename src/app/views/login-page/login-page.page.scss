@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap');
+
+$primary: #7912ad;
+$secondary: #cc6cfc;
+
+.container {
+    background: url(../../../assets/images/patter1.png), linear-gradient($primary, $secondary);
+    background-size: cover;
+    height: 100%;
+}
+
+.logoContainer {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation-duration: 1.5s;
+    animation-name: logoContainer;
+}
+
+@keyframes logoContainer {
+    
+    from {
+        height: 100%;
+    }
+    
+    to {
+       height: 40%;
+    }
+
+}
+
+.logo{
+    height: 10rem;
+    width: 10rem;
+}
+
+.cardForm {
+    padding: 5%;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 5% 5% 0% 0%;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list-inputs {
+    background-color: white;
+}
+
+.input{
+    margin: 5% auto;
+    display: flex;
+    flex-direction: column;
+}
+  
+
+@media (prefers-color-scheme: dark) {
+    .cardForm {
+        padding: 5%;
+        background-color: #242323;
+        border: 2px solid #242323;
+        border-radius: 5% 5% 0% 0%;
+        height: 60%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .list-inputs {
+        background-color: #242323;
+    }
+}
