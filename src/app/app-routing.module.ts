@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./views/login-page/login-page.module').then( m => m.LoginPagePageModule)
   },
   {
-    path: 'registered-page',
+    path: 'registeredPage',
     loadChildren: () => import('./views/registered-page/registered-page.module').then( m => m.RegisteredPagePageModule)
   },
 ];

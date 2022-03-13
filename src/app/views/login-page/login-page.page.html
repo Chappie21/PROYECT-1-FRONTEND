@@ -32,7 +32,9 @@
                 </ion-item>
             </ion-list>
 
-            <ion-label color="medium" class="ion-text-center">¿Aun no tienes cuenta?</ion-label>
+            <ion-label color="medium" class="ion-text-center" routerLink="/registeredPage">
+              ¿Aun no tienes cuenta?
+            </ion-label>
             <ion-button color="primary" class="ion-margin-top" [disabled]="!form.valid">
               Iniciar sesion
             </ion-button>

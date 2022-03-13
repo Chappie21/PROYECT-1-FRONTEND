@@ -1,9 +1,145 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>RegisteredPage</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="container">
+      <ion-text class="ion-text-center">
+          <h1>Crear cuenta</h1>
+      </ion-text>
 
+      <form [formGroup]="registeredForm">
+          <ion-list class="list-inputs">
+              <ion-item>
+                  <ion-input
+                    formControlName="nombre"
+                    placeholder="Primer nombre"
+                    inputmode="text"
+                    type="text"
+                    maxlength="20"
+                    required="true"
+                  ></ion-input>
+              </ion-item>
+              
+              <div *ngIf="displayErrors('nombre')" class="error-message">
+                <ion-label 
+                  *ngIf="registeredForm.controls['nombre'].errors.required"
+                  color="danger"
+                >
+                  Nombre requerido
+                </ion-label>
+                <ion-label 
+                  *ngIf="registeredForm.controls['nombre'].errors.pattern"
+                  color="danger"
+                >
+                  Nombre no valido
+                </ion-label>
+              </div>
+
+              <ion-item class="ion-margin-top">
+                <ion-input
+                  formControlName="apellido"
+                  placeholder="Primer apellido"
+                  inputmode="text"
+                  type="text"
+                  maxlength="20"
+                  required="true"
+                ></ion-input>
+              </ion-item>
+
+              <div *ngIf="displayErrors('apellido')" class="error-message">
+                <ion-label 
+                  *ngIf="registeredForm.controls['apellido'].errors.required"
+                  color="danger"
+                >
+                  Apellido requerido
+                </ion-label>
+                <ion-label 
+                  *ngIf="registeredForm.controls['nombre'].errors.pattern"
+                  color="danger"
+                >
+                  Apellido no valido
+                </ion-label>
+            </div>
+
+              <ion-item class="ion-margin-top">
+                <ion-input
+                  formControlName="email"
+                  placeholder="Email"
+                  inputmode="email"
+                  type="email"
+                  required="true"
+                ></ion-input>
+              </ion-item>
+
+              <div *ngIf="displayErrors('email')" class="error-message">
+                <ion-label 
+                  *ngIf="registeredForm.controls['email'].errors.required"
+                  color="danger"
+                >
+                  Email requerido
+                </ion-label>
+                <ion-label 
+                  *ngIf="registeredForm.controls['email'].errors.email"
+                  color="danger"
+                >
+                  Email no valido
+                </ion-label>
+              </div>
+
+              <ion-item class="ion-margin-top">
+                <ion-input
+                  formControlName="clave"
+                  placeholder="Contraseña"
+                  type="password"
+                  maxlength="16"
+                  required="true"
+                ></ion-input>
+              </ion-item>
+
+              <div *ngIf="displayErrors('clave')" class="error-message">
+                <ion-label 
+                  *ngIf="registeredForm.controls['clave'].errors.required"
+                  color="danger"
+                >
+                  Contraseña requerida
+                </ion-label>
+                <ion-label 
+                  *ngIf="registeredForm.controls['clave'].errors.minLength"
+                  color="danger"
+                >
+                  La contraseña de contener almenos 6 caracteres
+                </ion-label>
+              </div>
+
+              <ion-item class="ion-margin-top">
+                <ion-input
+                  formControlName="confirmClave"
+                  placeholder="Confirmar contraseña"
+                  type="password"
+                  required="true"
+                ></ion-input>
+              </ion-item>
+
+              <div *ngIf="displayErrors('confirmClave') || !passwordsMatchValidator()" class="error-message">
+                <ion-label 
+                  *ngIf="registeredForm.controls['confirmClave'].errors.required"
+                  color="danger"
+                >
+                  Confirmacion de contraseña requerida
+                </ion-label>
+                <ion-label 
+                  *ngIf="!passwordsMatchValidator()"
+                  class="ion-margin-top"
+                  color="danger"
+                >
+                  La contraseña no coincide
+                </ion-label>
+              </div>
+          </ion-list>
+
+          <ion-label color="medium" class="ion-text-center ion-margin-top" routerLink="/loginPage">
+            ¿Ya tienes uan cuenta?
+          </ion-label>
+          <ion-button color="primary" class="ion-margin-top" [disabled]="!registeredForm.valid && passwordsMatchValidator()">
+            Registrarse
+          </ion-button>
+      </form>
+  </div>
 </ion-content>
