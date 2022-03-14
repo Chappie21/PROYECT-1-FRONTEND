@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticateService } from 'src/app/services/authenticate.service';
+import { ControllerService } from 'src/app/services/controller.service';
+
 
 @Component({
   selector: 'app-login-page',
@@ -11,9 +14,10 @@ export class LoginPagePage implements OnInit {
 
   protected form:FormGroup
 
-  constructor() { 
-      
-  }
+  constructor(
+    private autenticate:AuthenticateService,
+    public controllerService:ControllerService
+    ) { }
 
   ngOnInit() {
     this.buildForm();
@@ -26,8 +30,27 @@ export class LoginPagePage implements OnInit {
     })
   }
 
-  protected handleLogin () {
-    
+  // Proceso de logIn del usuario
+  protected async handleLogin () {
+      let loading = await this.controllerService.createLoading();
+
+      await loading.present(); // Activar componente con animacion de carga
+
+      this.autenticate.postLogin(this.form.get('emailOrUser').value, this.form.get('password').value)
+      .subscribe(async (response) =>{
+          console.log(response);
+          await loading.dismiss()
+      },
+      async (response) => {
+        await loading.dismiss()
+        console.log(response.error);
+        const alert = await this.controllerService.createAlert({
+          header: 'Inicio de sesion fallido',
+          message: response.error.mensaje,
+          buttons: ['OK'],
+        });
+        alert.present()
+      })     
   }
 
 }
