@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticateService } from 'src/app/services/auth/authenticate.service';
 import { ControllerService } from 'src/app/services/controllers/controller.service';
-
+import { StorageService } from 'src/app/services/storage/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -16,8 +17,10 @@ export class LoginPagePage implements OnInit {
 
   constructor(
     private autenticate:AuthenticateService,
-    public controllerService:ControllerService
-    ) { }
+    private controllerService:ControllerService,
+    private storage: StorageService,
+    private router:Router
+  ) { }
 
   ngOnInit() {
     this.buildForm();
@@ -39,7 +42,9 @@ export class LoginPagePage implements OnInit {
       this.autenticate.postLogin(this.form.get('emailOrUser').value, this.form.get('password').value)
       .subscribe(async (response) =>{
           console.log(response);
-          await loading.dismiss()
+          await loading.dismiss();
+          this.storage.setUserData(response);
+          this.router.navigateByUrl('/tabsPage', {replaceUrl: true});
       },
       async (response) => {
         await loading.dismiss()
