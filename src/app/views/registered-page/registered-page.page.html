@@ -135,9 +135,14 @@
           </ion-list>
 
           <ion-label color="medium" class="ion-text-center ion-margin-top" routerLink="/loginPage">
-            ¿Ya tienes uan cuenta?
+            ¿Ya tienes una cuenta?
           </ion-label>
-          <ion-button color="primary" class="ion-margin-top" [disabled]="!registeredForm.valid && passwordsMatchValidator()">
+          <ion-button 
+            color="primary" 
+            class="ion-margin-top" 
+            [disabled]="!registeredForm.valid && passwordsMatchValidator()"
+            (click)="handleRegisterdUser()"
+          >
             Registrarse
           </ion-button>
       </form>
