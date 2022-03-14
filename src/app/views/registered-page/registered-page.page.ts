@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ControllerService } from 'src/app/services/controllers/controller.service';
+import { UserService } from 'src/app/services/user/user.service';
+import { StorageService } from 'src/app/services/storage/storage.service';
 
 @Component({
   selector: 'app-registered-page',
@@ -11,7 +14,11 @@ export class RegisteredPagePage implements OnInit {
 
   protected registeredForm:FormGroup;
   
-  constructor() { }
+  constructor(
+    private user: UserService,
+    private controller: ControllerService,
+    private storage: StorageService
+  ) { }
 
   ngOnInit() {
       this.buildForm()
@@ -27,13 +34,44 @@ export class RegisteredPagePage implements OnInit {
     })
   }
 
+  private getFormData(){
+    return {
+        nombre: this.registeredForm.get('nombre').value,
+        apellido: this.registeredForm.get('apellido').value,
+        email: this.registeredForm.get('email').value,
+        clave: this.registeredForm.get('clave').value
+    }
+  }
+
   protected displayErrors(FormName:string): boolean{
     return this.registeredForm.controls[FormName].invalid && (this.registeredForm.controls[FormName].dirty || this.registeredForm.controls[FormName].touched);
   }
 
   protected passwordsMatchValidator(): boolean{
-    console.log(this.registeredForm.get('clave').value === this.registeredForm.get('confirmClave').value)
     return this.registeredForm.get('clave').value === this.registeredForm.get('confirmClave').value
+  }
+
+  protected async handleRegisterdUser(){
+    let login = await this.controller.createLoading()
+    const formData = this.getFormData(); // datos del formulario
+
+    await login.present();
+    this.user.postRegisteredUser(formData.nombre, formData.apellido, formData.email, formData.clave)
+    .subscribe(async (response)=>{
+      console.log(response)
+      await login.dismiss();
+      this.storage.setUserData(response);
+    },
+    async (response) =>{
+      await login.dismiss();
+      console.log(response)
+      const alert =await this.controller.createAlert({
+        header: '',
+        message: response.error.mensaje,
+        buttons: ['OK']
+      });
+      await alert.present();
+    })
   }
 
 }

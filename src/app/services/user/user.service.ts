@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Capacitor } from '@capacitor/core';
-import { Constants } from '../config/constants';
-import { User } from '../models/user.model';
+import { Constants } from '../../config/constants';
+import { User } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticateService {
+export class UserService {
 
   constructor(private http:HttpClient) { }
 
@@ -21,13 +21,20 @@ export class AuthenticateService {
     return header;
   }
 
-  public postLogin(userOrEmail:string, password:string):any{
+  public postRegisteredUser(
+    nombre:string, 
+    apellido:string,
+    email:string,
+    clave:string
+  ):any{
 
     const body = {
-        email: userOrEmail,
-        clave: password
+        nombre: nombre,
+        apellido: apellido,
+        email: email,
+        clave: clave
     }
 
-    return this.http.post(Constants.basePath + 'usuario/autenticar', body, this.setHeaders())
+    return this.http.post(Constants.basePath + 'usuario', body, this.setHeaders())
   }
 }
