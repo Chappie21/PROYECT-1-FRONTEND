@@ -20,12 +20,12 @@ const routes: Routes = [
   {
     path: 'tabsPage',
     loadChildren: () => import('./views/dashboard-tabs/dashboard-tabs.module').then( m => m.DashboardTabsPageModule)
-  }
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, enableTracing: true })
   ],
   exports: [RouterModule]
 })

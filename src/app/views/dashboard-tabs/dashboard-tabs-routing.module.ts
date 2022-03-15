@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
+import { enableDebugTools } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { ConfigureMenuPage } from '../configure-menu/configure-menu.page';
+import { UserProfilePage } from '../user-profile/user-profile.page';
 
 import { DashboardTabsPage } from './dashboard-tabs.page';
 
@@ -9,11 +12,19 @@ const routes: Routes = [
     component: DashboardTabsPage,
     children: [
       {
-        path: 'profile',
-        loadChildren: () => import('../user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+        path: 'user',
       },
+      {
+        path: 'profile',
+        component: UserProfilePage
+      },
+      {
+        path: 'settings',
+        component: ConfigureMenuPage
+      }
     ]
-  }
+  },
+  
 ];
 
 @NgModule({
