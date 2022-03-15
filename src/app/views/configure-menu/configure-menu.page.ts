@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ControllerService } from 'src/app/services/controllers/controller.service';
 
 @Component({
   selector: 'app-configure-menu',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigureMenuPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private controller:ControllerService
+  ) { }
 
   ngOnInit() {
+  }
+
+  public closePageModal(){
+    this.controller.dismissModal({
+      'dismissed': true
+    })
   }
 
 }

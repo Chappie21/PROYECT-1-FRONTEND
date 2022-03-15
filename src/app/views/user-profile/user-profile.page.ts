@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ControllerService } from 'src/app/services/controllers/controller.service';
+import { ConfigureMenuPage } from '../configure-menu/configure-menu.page';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,13 +10,17 @@ import { Router } from '@angular/router';
 })
 export class UserProfilePage implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(
+    private router:Router,
+    private controller:ControllerService
+  ) { }
 
   ngOnInit() {
   }
 
-  protected handleNavigateToSettings() {
-    this.router.navigateByUrl('/tabsPage/settings', {replaceUrl: true});
+  public async handleNavigateToSettings() {
+    const modal = await this.controller.createModal({component: ConfigureMenuPage});
+    modal.present();
   }
 
 }

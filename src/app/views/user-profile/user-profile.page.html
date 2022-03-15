@@ -15,29 +15,20 @@
         </div>
 
         <!-- Informacion del usaurio -->
-        <ion-grid class="ion-padding">
-            <ion-row class="ion-align-items-center">
-                <ion-col size="2">
-                  <ion-icon name="person-circle-outline" size="large"></ion-icon>
-                </ion-col>
-                <ion-col>
-                  <ion-text>Nombre de usuario</ion-text>
-                </ion-col>
-            </ion-row>
-            <ion-row class="ion-align-items-center">
-              <ion-col size="2">
-                <ion-icon name="mail-outline" size="large"></ion-icon>
-              </ion-col>
-              <ion-col>
-                <ion-text>Email del usuario</ion-text>
-              </ion-col>
-            </ion-row>
-            <ion-row class="ion-justify-content-center">
-              <ion-button color="primary" class="ion-margin-top ion-align-items-center" (click)="handleNavigateToSettings()">
-                EDITAR PERFIL
-                <ion-icon name="pencil-outline" class="ion-margin-start"></ion-icon>
-              </ion-button>
-            </ion-row>
-        </ion-grid>
+        <ion-list color="dark">
+          <ion-item class="ion-align-items-center ion-justify-content-between">
+            <ion-icon name="person-circle-outline" size="large" slot="start"></ion-icon>
+            <ion-text>Nombre de usuario</ion-text>
+          </ion-item>
+          <ion-item class="ion-align-items-center ion-justify-content-between">
+            <ion-icon name="mail-outline" size="large" slot="start"></ion-icon>
+            <ion-text>Email del usuario</ion-text>
+          </ion-item> 
+          <ion-item button class="ion-align-items-center ion-justify-content-between" (click)="handleNavigateToSettings()">
+            <ion-icon name="pencil-outline" size="large" slot="start"></ion-icon>
+            <ion-text>Editar perfil</ion-text>
+            <ion-icon name="chevron-forward-outline" size="large" slot="end"></ion-icon>
+          </ion-item>
+        </ion-list>
     </div>
 </ion-content>
