@@ -8,14 +8,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
    <form>
-    <ion-list>
+    <ion-list class="list-inputs">
       <ion-item>
-        
+          <ion-input
+            placeholder="Nombre"
+          >
+          </ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+          <ion-input
+            placeholder="Apellido"
+          >
+          </ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+          <ion-input
+            placeholder="Email"
+          >
+        </ion-input>
       </ion-item>
     </ion-list>
-   </form>
 
+    <div class="button-content">
+        <ion-button color="danger">Cancelar</ion-button>
+        <ion-button>Actualizar</ion-button>
+    </div>
+
+   </form>
 </ion-content>
