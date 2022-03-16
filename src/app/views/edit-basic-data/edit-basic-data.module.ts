@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ConfigureMenuPageRoutingModule } from './configure-menu-routing.module';
+import { EditBasicDataPageRoutingModule } from './edit-basic-data-routing.module';
 
-import { ConfigureMenuPage } from './configure-menu.page';
+import { EditBasicDataPage } from './edit-basic-data.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ConfigureMenuPageRoutingModule
+    EditBasicDataPageRoutingModule
   ],
-  declarations: [ConfigureMenuPage]
+  declarations: [EditBasicDataPage]
 })
-export class ConfigureMenuPageModule {}
+export class EditBasicDataPageModule {}

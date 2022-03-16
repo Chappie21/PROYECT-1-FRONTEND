@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ControllerService } from 'src/app/services/controllers/controller.service';
+import { EditBasicDataPage } from '../edit-basic-data/edit-basic-data.page';
 
 @Component({
   selector: 'app-configure-menu',
@@ -15,10 +16,14 @@ export class ConfigureMenuPage implements OnInit {
   ngOnInit() {
   }
 
-  public closePageModal(){
+  public closePageModal():void{
     this.controller.dismissModal({
       'dismissed': true
     })
   }
 
+  public async openEditBasicData(){
+    const modal = await this.controller.createModal({component: EditBasicDataPage});
+    modal.present();
+  }
 }

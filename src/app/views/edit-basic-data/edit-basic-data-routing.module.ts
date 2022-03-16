@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ConfigureMenuPage } from './configure-menu.page';
+import { EditBasicDataPage } from './edit-basic-data.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ConfigureMenuPage
+    component: EditBasicDataPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ConfigureMenuPageRoutingModule {}
+export class EditBasicDataPageRoutingModule {}
