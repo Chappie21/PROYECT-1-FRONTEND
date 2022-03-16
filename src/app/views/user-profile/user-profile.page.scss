@@ -1,0 +1,55 @@
+$primary: #7912ad;
+$secondary: #cc6cfc;
+
+.container{
+    height: 100%;
+}
+
+.header-splash {
+    height: 35%;
+    width: 100%;
+    background: url(../../../assets/images/patter1.png), linear-gradient($primary, $secondary);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container {
+    height: 14rem;
+    width: 14rem;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.not-profile-img{
+    width: 7rem;
+    height: 7rem;
+}
+
+.avatar-img{
+    width: 14rem;
+    height: 14rem;
+    border: 2px solid white;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .img-container {
+        height: 14rem;
+        width: 14rem;
+        background-color: #242323;
+        border: 2px solid #242323;
+        border-radius: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

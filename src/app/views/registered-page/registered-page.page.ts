@@ -3,6 +3,7 @@ import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ControllerService } from 'src/app/services/controllers/controller.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registered-page',
@@ -17,7 +18,8 @@ export class RegisteredPagePage implements OnInit {
   constructor(
     private user: UserService,
     private controller: ControllerService,
-    private storage: StorageService
+    private storage: StorageService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -61,6 +63,7 @@ export class RegisteredPagePage implements OnInit {
       console.log(response)
       await login.dismiss();
       this.storage.setUserData(response);
+      this.router.navigateByUrl('/tabsPage', {replaceUrl: true});
     },
     async (response) =>{
       await login.dismiss();

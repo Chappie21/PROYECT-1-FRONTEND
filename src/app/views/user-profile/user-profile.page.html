@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <!-- Imagen y nombre del usuario -->
+        <div class="header-splash">
+
+            <!-- En caso de no tener foto de usuario -->
+            <div class="img-container">
+              <img src="../../../assets/images/logo.png" class="not-profile-img"/>
+              <ion-text color="medium">Sin foto de perfil</ion-text>
+            </div>
+
+            <!-- En caso de tener foto de usuario -->
+            <!--<div [hidden]="userData.fotoPerfil !== '' ">
+                <ion-avatar class="avatar-img">
+                    <img src="https://res.cloudinary.com/binwus/image/upload/v1647224581/cld-sample.jpg"/>
+                </ion-avatar>
+            </div>-->
+        </div>
+
+        <!-- Informacion del usaurio -->
+        <ion-list color="dark">
+          <ion-item class="ion-align-items-center ion-justify-content-between">
+            <ion-icon name="person-circle-outline" size="large" slot="start"></ion-icon>
+            <ion-text>{{userData.nombre + ' ' + userData.apellido}}</ion-text>
+          </ion-item>
+          <ion-item class="ion-align-items-center ion-justify-content-between">
+            <ion-icon name="mail-outline" size="large" slot="start"></ion-icon>
+            <ion-text>{{userData.emailU}}</ion-text>
+          </ion-item> 
+          <ion-item button detail class="ion-align-items-center ion-justify-content-between" (click)="handleNavigateToSettings()">
+            <ion-icon name="pencil-outline" size="large" slot="start"></ion-icon>
+            <ion-text>Editar perfil</ion-text>
+          </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
