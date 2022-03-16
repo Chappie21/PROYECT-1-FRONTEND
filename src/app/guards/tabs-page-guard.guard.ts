@@ -24,7 +24,7 @@ export class TabsPageGuardGuard implements CanLoad {
       take(1),
       map(isAuthenticated => {
         if (!isAuthenticated) {
-          this.router.navigateByUrl('LoginPage', { replaceUrl: true });
+          this.router.navigateByUrl('loginPage', { replaceUrl: true });
           return false;
         }
         

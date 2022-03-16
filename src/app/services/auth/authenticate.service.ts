@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Capacitor } from '@capacitor/core';
 import { Constants } from '../../config/constants';
-import { User } from '../../models/user.model';
 
 @Injectable({
   providedIn: 'root'

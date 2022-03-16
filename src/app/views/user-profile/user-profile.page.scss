@@ -24,13 +24,19 @@ $secondary: #cc6cfc;
     border-radius: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
 .not-profile-img{
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
+}
+
+.avatar-img{
+    width: 14rem;
+    height: 14rem;
+    border: 2px solid white;
 }
 
 
