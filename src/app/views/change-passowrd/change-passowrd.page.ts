@@ -72,8 +72,14 @@ export class ChangePassowrdPage implements OnInit {
 
       this.userService.changePasasword(oldPassword, newPassword)
       .subscribe(
-        (response)=>{
+        async (response)=>{
             loading.dismiss();
+            const alert = await this.controller.createAlert({
+              header: '',
+              message: 'La contrasña a sido cambiada',
+              buttons: ['OK']
+            });
+            alert.present();
             this.closePageModal();
         },
         async (response) =>{
@@ -85,7 +91,6 @@ export class ChangePassowrdPage implements OnInit {
               buttons: ['OK']
             });
             alert.present();
-
         }
       )
   }
