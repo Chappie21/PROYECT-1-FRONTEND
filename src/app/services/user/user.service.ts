@@ -17,8 +17,12 @@ export class UserService {
   }
 
   private getLocalUserData(){
-      this.dataUser = JSON.parse(localStorage.getItem('USER'));
-      console.log(this.dataUser)
+    this.dataUser = JSON.parse(localStorage.getItem('USER'));
+  }
+
+  private updateLocalStorage(user:User){
+    localStorage.removeItem('USER');
+    localStorage.setItem('USER', JSON.stringify(user));
   }
 
   private setHeaders(){
@@ -69,5 +73,18 @@ export class UserService {
     this.dataUser.nombre = nombre;
     this.dataUser.apellido = apellido;
     this.dataUser.email = email;
+    this.updateLocalStorage(this.dataUser);
   }
+
+  public updateUserData(nombre:string, apellido:string, email:string){
+
+    const body = {
+      nombre: nombre,
+      apellido: apellido,
+      email: email
+    }
+
+    return this.http.put(Constants.basePath + 'user', body, this.setHeaderWithSecurity());
+  }
+
 }

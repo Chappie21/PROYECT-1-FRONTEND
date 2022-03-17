@@ -33,7 +33,6 @@ export class UserProfilePage implements OnInit {
 
   private async getUserData(){
     this.userData = this.userService.getUserData();
-    console.log(this.userData);
   }
 
   public async handleNavigateToSettings() {
