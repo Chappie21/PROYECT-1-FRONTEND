@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Capacitor } from '@capacitor/core';
 import { Constants } from '../../config/constants';
 import { User } from 'src/app/interfaces/user';
 
@@ -84,7 +82,18 @@ export class UserService {
       email: email
     }
 
-    return this.http.put(Constants.basePath + 'user', body, this.setHeaderWithSecurity());
+    return this.http.put(Constants.basePath + 'usuario', body, this.setHeaderWithSecurity());
+  }
+
+  public changePasasword(oldPassword:string, newPassword:string){
+
+    const body = {
+      claveAntigua: oldPassword,
+      claveNueva: newPassword
+    }
+
+    return this.http.put(Constants.basePath + 'usuario/edicionClave', body, this.setHeaderWithSecurity());
+
   }
 
 }
