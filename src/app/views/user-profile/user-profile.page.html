@@ -8,19 +8,20 @@
     <div class="container">
         <!-- Imagen y nombre del usuario -->
         <div class="header-splash">
-
-            <!-- En caso de no tener foto de usuario -->
-            <div class="img-container">
-              <img src="../../../assets/images/logo.png" class="not-profile-img"/>
-              <ion-text color="medium">Sin foto de perfil</ion-text>
+            <!-- En caso de tener foto de usuario -->
+            <div *ngIf="userData.fotoPerfil !== '' else NoImage">
+              <ion-avatar class="avatar-img">
+                  <img src="https://res.cloudinary.com/binwus/image/upload/v1647224581/cld-sample.jpg"/>
+              </ion-avatar>
             </div>
 
-            <!-- En caso de tener foto de usuario -->
-            <!--<div [hidden]="userData.fotoPerfil !== '' ">
-                <ion-avatar class="avatar-img">
-                    <img src="https://res.cloudinary.com/binwus/image/upload/v1647224581/cld-sample.jpg"/>
-                </ion-avatar>
-            </div>-->
+            <ng-template #NoImage>
+              <!-- En caso de no tener foto de usuario -->
+              <div class="img-container">
+                <img src="../../../assets/images/logo.png" class="not-profile-img"/>
+                <ion-text color="medium">Sin foto de perfil</ion-text>
+              </div>
+            </ng-template>
         </div>
 
         <!-- Informacion del usaurio -->

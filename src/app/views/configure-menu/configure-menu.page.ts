@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ControllerService } from 'src/app/services/controllers/controller.service';
 import { ChangePassowrdPage } from '../change-passowrd/change-passowrd.page';
+import { ChangeProfilePhotoPage } from '../change-profile-photo/change-profile-photo.page';
 import { EditBasicDataPage } from '../edit-basic-data/edit-basic-data.page';
 
 @Component({
@@ -30,6 +31,11 @@ export class ConfigureMenuPage implements OnInit {
 
   public async openChangePassword(){
     const modal = await this.controller.createModal({component: ChangePassowrdPage});
+    modal.present();
+  }
+
+  public async openChangeProfilePhoto(){
+    const modal = await this.controller.createModal({component: ChangeProfilePhotoPage});
     modal.present();
   }
 }
