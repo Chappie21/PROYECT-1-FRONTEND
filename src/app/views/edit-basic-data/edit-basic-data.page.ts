@@ -62,9 +62,16 @@ export class EditBasicDataPage implements OnInit {
 
     this.userService.updateUserData(nombre, apellido, email)
     .subscribe(
-      (response) =>{
+      async (response) =>{
         this.userService.setUserBasicData(nombre, apellido, email);
         loading.dismiss();
+        const alert = await this.controller.createAlert({
+          header: '',
+          message: 'Datos actualizados',
+          buttons: ['OK']
+        });
+
+        alert.present();
         this.closePageModal();
       },
       async (response) =>{

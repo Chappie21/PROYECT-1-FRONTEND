@@ -10,9 +10,15 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ConfigureMenuPage } from './views/configure-menu/configure-menu.page';
 import { EditBasicDataPage } from './views/edit-basic-data/edit-basic-data.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChangePassowrdPage } from './views/change-passowrd/change-passowrd.page';
 
 @NgModule({
-  declarations: [AppComponent, ConfigureMenuPage, EditBasicDataPage],
+  declarations: [
+    AppComponent, 
+    ConfigureMenuPage, 
+    EditBasicDataPage, 
+    ChangePassowrdPage
+  ],
   entryComponents: [],
   imports: [
     BrowserModule, 

@@ -25,7 +25,11 @@ const routes: Routes = [
     path: 'tabsPage',
     loadChildren: () => import('./views/dashboard-tabs/dashboard-tabs.module').then( m => m.DashboardTabsPageModule),
     canLoad: [TabsPageGuardGuard]
+  },  {
+    path: 'change-passowrd',
+    loadChildren: () => import('./views/change-passowrd/change-passowrd.module').then( m => m.ChangePassowrdPageModule)
   },
+
 ];
 
 @NgModule({

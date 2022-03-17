@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar class="ion-align-items-center">
+    <ion-buttons slot="start" class="ion-align-items-center" (click)="closePageModal()">
+      <ion-icon name="chevron-back-outline" size="medium" slot="start"></ion-icon>
+      <ion-text>Atras</ion-text>
+    </ion-buttons>
+    <ion-title>Cambiar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form [formGroup]="passwordForm">
+        <ion-list class="list-inputs">
+          <ion-item>
+            <ion-input
+              formControlName="oldPassword"
+              placeholder="contraseña anterior"
+              inputmode="password"
+              type="password"
+              maxlength="16"
+              required="true"
+            >
+            </ion-input>
+        </ion-item>
+
+        <div *ngIf="displayErrors('oldPassword')" class="error-message">
+          <ion-label 
+            *ngIf="passwordForm.controls['oldPassword'].errors.required"
+            color="danger"
+          >
+            Requerido
+          </ion-label>
+        </div>
+        
+        <ion-item class="ion-margin-top">
+            <ion-input
+              formControlName="newPassword"
+              placeholder="nueva contraseña"
+              inputmode="password"
+              type="password"
+              maxlength="16"
+              required="true"
+            >
+            </ion-input>
+        </ion-item>
+
+        <div *ngIf="displayErrors('newPassword')" class="error-message">
+          <ion-label 
+            *ngIf="passwordForm.controls['newPassword'].errors.required"
+            color="danger"
+          >
+            Requerido
+          </ion-label>
+
+          <ion-label 
+            *ngIf="!passwordMin6Characteres()"
+            color="danger"
+          >
+            La contraseña debe tener minimo 6 caracteres
+         </ion-label>
+        </div>
+
+        <ion-item class="ion-margin-top">
+            <ion-input
+              formControlName="confirmPassword"
+              placeholder="confirmar contraseña"
+              inputmode="password"
+              type="password"
+              required="true"
+            >
+          </ion-input>
+        </ion-item>
+
+        <div *ngIf="displayErrors('confirmPassword') || !passwordsMatchValidator()" class="error-message">
+          <ion-label 
+            *ngIf="passwordForm.controls['confirmPassword'].errors.required"
+            color="danger"
+          >
+            Requerido
+          </ion-label>
+
+          <ion-label 
+            *ngIf="!passwordsMatchValidator()"
+            color="danger"
+          >
+            La contraseña no coincide
+          </ion-label>
+        </div>
+      </ion-list>
+
+      <div class="button-content">
+        <ion-button color="danger" (click)="closePageModal()">Cancelar</ion-button>
+        <ion-button [disabled]="disbaledButton()" (click)="handleChangePassword()">Actualizar</ion-button>
+      </div>
+
+    </form>
+</ion-content>
