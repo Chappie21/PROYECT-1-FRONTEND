@@ -32,33 +32,8 @@ export class UserProfilePage implements OnInit {
   }
 
   private async getUserData(){
-
-    let loading = await this.controller.createLoading();
-
-    await loading.present(); // Activar componente con animacion de carga
-
-
-    const response = this.userService.getUserData().subscribe(
-      (response:User) =>{
-
-          // Establecer datos obtenidos del usuario
-          this.userData = response;
-          console.log(response);
-      },
-      async (response) =>{
-
-          // Mostrar alert en caso de error
-          const alert = await this.controller.createAlert({
-            header: '',
-            message: response.mensaje,
-            buttons: ['OK']
-          })
-
-          alert.present();
-      }
-    );
-
-    loading.dismiss();
+    this.userData = this.userService.getUserData();
+    console.log(this.userData);
   }
 
   public async handleNavigateToSettings() {

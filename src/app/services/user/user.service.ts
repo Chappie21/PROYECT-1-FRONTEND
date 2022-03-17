@@ -3,13 +3,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Capacitor } from '@capacitor/core';
 import { Constants } from '../../config/constants';
+import { User } from 'src/app/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http:HttpClient) { }
+  private dataUser:User;
+
+  constructor(private http:HttpClient) { 
+    this.getLocalUserData();
+  }
+
+  private getLocalUserData(){
+      this.dataUser = JSON.parse(localStorage.getItem('USER'));
+      console.log(this.dataUser)
+  }
 
   private setHeaders(){
     let header = {
@@ -21,7 +31,6 @@ export class UserService {
   }
 
   private setHeaderWithSecurity(){
-    //console.log(localStorage.getItem('TOKEN'));
     let header = {
       headers: new HttpHeaders()
       .append('Access-Control-Allow-Origin', Constants.basePath)
@@ -49,6 +58,16 @@ export class UserService {
   }
 
   public getUserData(){
-    return this.http.get(Constants.basePath + 'usuario', this.setHeaderWithSecurity())
+      return this.dataUser;
+  }
+
+  public setUserData(data:User){
+    this.dataUser = data;
+  }
+
+  public setUserBasicData(nombre:string, apellido:string, email:string){
+    this.dataUser.nombre = nombre;
+    this.dataUser.apellido = apellido;
+    this.dataUser.email = email;
   }
 }

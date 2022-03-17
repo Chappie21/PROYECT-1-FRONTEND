@@ -4,6 +4,7 @@ import { AuthenticateService } from 'src/app/services/auth/authenticate.service'
 import { ControllerService } from 'src/app/services/controllers/controller.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-login-page',
@@ -17,6 +18,7 @@ export class LoginPagePage implements OnInit {
 
   constructor(
     private autenticate:AuthenticateService,
+    private userService:UserService,
     private controllerService:ControllerService,
     private storage: StorageService,
     private router:Router
@@ -45,6 +47,7 @@ export class LoginPagePage implements OnInit {
           await loading.dismiss();
           this.storage.setUserData(response);
           this.autenticate.setToken(response.access_token);
+          this.userService.setUserData(response);
           this.router.navigateByUrl('/tabsPage', {replaceUrl: true});
       },
       async (response) => {

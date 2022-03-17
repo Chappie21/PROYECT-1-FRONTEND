@@ -28,7 +28,7 @@ export class LoginGuardGuard implements CanLoad {
           return false;
         }
         else if (!!!hasSeenIntro) {
-          this.router.navigateByUrl('LoginPage', { replaceUrl: true });
+          this.router.navigateByUrl('loginPage', { replaceUrl: true });
           return false
         }
         else {
