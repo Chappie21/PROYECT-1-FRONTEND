@@ -5,7 +5,7 @@
     <div class="welcomeCard">
       <ion-text>
           <h1>Hola, {{userData.nombre}}</h1>
-          <h3>Un mundo de peliculas te espera!</h3>
+          <h3>{{comentary}}</h3>
       </ion-text>
     </div>
 
@@ -14,7 +14,29 @@
       <ion-text>
         <h2>Peliculas recientes</h2>
       </ion-text>
-      <app-movie-card></app-movie-card>
+      <ion-slides [options]="slidersConfig">
+        <ion-slide *ngFor="let movie of movies">
+          <app-movie-card
+            [cover]="movie.portada"
+            [title]="movie.nombre"
+            [rating]="movie.calificacion"
+          >
+          </app-movie-card>
+        </ion-slide>
+      </ion-slides>
+      <ion-text>
+        <h2>Peliculas mejor votadas</h2>
+      </ion-text>
+      <ion-slides [options]="slidersConfig">
+        <ion-slide *ngFor="let movie of bestMovies">
+          <app-movie-card
+            [cover]="movie.portada"
+            [title]="movie.nombre"
+            [rating]="movie.calificacion"
+          >
+          </app-movie-card>
+        </ion-slide>
+      </ion-slides>
     </div>
 
   </div>

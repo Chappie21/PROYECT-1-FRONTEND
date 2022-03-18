@@ -1,3 +1,16 @@
-<p>
-  movie-card works!
-</p>
+<div class="card">
+  <img [src]="cover" class="cover" />
+  <div class="info">
+    <ion-grid class="info">
+      <ion-row class="rating">
+        <img src="../../../assets/images/logo.png" class="rating-taco"/>
+        <ion-text class="ion-margin-start">
+            <p>{{rating}}  %</p>
+        </ion-text>
+      </ion-row>
+    </ion-grid>
+    <ion-text class="ion-text-wrap">
+      <p>{{title}}</p>
+    </ion-text>
+  </div>
+</div>

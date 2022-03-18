@@ -15,6 +15,23 @@ export class HomePage implements OnInit {
 
   public userData:User;
   public movies:MovieInfo[];
+  public bestMovies:MovieInfo[];
+
+  public slidersConfig = {
+    spaceBeetwen: 10,
+    centeredSlides: false,
+    slidesPerView: 1.6
+  };
+
+  public randomCommentarys: string[] = [
+    '¡un mundo de pelis te espera!',
+    '¿que tal una pelicula y un taco?',
+    '¿lo mismo de siempre?',
+    'No spoilers en esta app',
+    'Creo que tengo depreisón'
+  ]
+
+  public comentary:string;
 
   constructor(
     private userService:UserService,
@@ -25,6 +42,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.userData = this.userService.getUserData();
     this.getMoviesDashBoard();
+    this.comentary = this.SelectRandomComentary();
   }
 
   private async getMoviesDashBoard(){
@@ -36,6 +54,7 @@ export class HomePage implements OnInit {
     .subscribe(
       (response:Dashboard) =>{
           this.movies = response.datos;
+          this.getMoviesBestRating();
           loading.dismiss();
       },
       async (response) =>{
@@ -43,6 +62,14 @@ export class HomePage implements OnInit {
         loading.dismiss();
       }
     )
+  }
+
+  private getMoviesBestRating(){
+    this.bestMovies = this.movies.filter((movie) => parseFloat(movie.calificacion) > -1)
+  }
+
+  private SelectRandomComentary():string{
+     return this.randomCommentarys[Math.floor(Math.random() * this.randomCommentarys.length)];
   }
 
 }

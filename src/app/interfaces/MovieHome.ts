@@ -9,5 +9,5 @@ export interface MovieInfo{
     estreno:        string,
     genero:         string,
     nombre:         string,
-    protada:        string
+    portada:        string
 }

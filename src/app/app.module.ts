@@ -16,6 +16,7 @@ import { ProfilePhotoComponent } from './components/profile-photo/profile-photo.
 import { UserProfilePageModule } from './views/user-profile/user-profile.module';
 import { UserProfilePage } from './views/user-profile/user-profile.page';
 import { DeleteAccountPage } from './views/delete-account/delete-account.page';
+import { HomePageModule } from './views/home/home.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DeleteAccountPage } from './views/delete-account/delete-account.page';
     HttpClientModule, 
     ReactiveFormsModule,
     FormsModule,
+    HomePageModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HttpClientModule],
   bootstrap: [AppComponent],

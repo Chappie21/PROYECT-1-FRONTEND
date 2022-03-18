@@ -1,0 +1,53 @@
+.card{
+    width: 12rem;
+    height: 22rem;
+    background-color: #a5a1a1;
+    border: transparent 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.cover{
+    border: transparent 0.5rem;
+    border-top: 0.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    object-fit: cover;
+    min-height: 80%;
+    max-height: 80%;
+}
+
+.info{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    display: inline-block;
+    line-height: 0%;
+}
+
+.rating{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 0%;
+    width: 100%;
+    padding-left: 5%;
+}
+
+.rating-taco{
+    width: 1rem;
+    height: 1rem;
+}
+
+p{
+    color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    .card{
+        width: 12rem;
+        height: 22rem;
+        background-color: #242323;
+        border: transparent 0.5rem;
+        border-radius: 0.5rem;
+    }
+}
