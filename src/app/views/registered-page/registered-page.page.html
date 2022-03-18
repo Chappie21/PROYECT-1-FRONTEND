@@ -140,7 +140,7 @@
           <ion-button 
             color="primary" 
             class="ion-margin-top" 
-            [disabled]="!registeredForm.valid && passwordsMatchValidator()"
+            [disabled]="!registeredForm.valid || !passwordsMatchValidator()"
             (click)="handleRegisterdUser()"
           >
             Registrarse

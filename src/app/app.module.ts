@@ -15,6 +15,7 @@ import { ChangeProfilePhotoPage } from './views/change-profile-photo/change-prof
 import { ProfilePhotoComponent } from './components/profile-photo/profile-photo.component';
 import { UserProfilePageModule } from './views/user-profile/user-profile.module';
 import { UserProfilePage } from './views/user-profile/user-profile.page';
+import { DeleteAccountPage } from './views/delete-account/delete-account.page';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserProfilePage } from './views/user-profile/user-profile.page';
     ChangePassowrdPage,
     ChangeProfilePhotoPage,
     ProfilePhotoComponent,
-    UserProfilePage
+    UserProfilePage,
+    DeleteAccountPage
   ],
   entryComponents: [],
   imports: [

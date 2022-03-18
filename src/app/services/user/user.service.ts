@@ -96,4 +96,8 @@ export class UserService {
 
   }
 
+  public deleteAccount(){
+    return this.http.delete(Constants.basePath + 'usuario', this.setHeaderWithSecurity())
+  }
+
 }

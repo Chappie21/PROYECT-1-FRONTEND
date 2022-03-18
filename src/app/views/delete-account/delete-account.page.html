@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar class="ion-align-items-center">
+    <ion-buttons slot="start" class="ion-align-items-center" (click)="closePageModal()">
+      <ion-icon name="chevron-back-outline" size="medium" slot="start"></ion-icon>
+      <ion-text>Atras</ion-text>
+    </ion-buttons>
+    <ion-title color="danger">Eliminar cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="main-container">
+        <div class="card" color="danger">
+          <ion-text class="ion-text-justify text">
+            En este apartado usted puede eliminar su cuenta, se eleminaran todos su datos comentarios y reviews.
+            Una vez que presione este boton, usted debe de saber que nunca hice un spoiler de Spiderman No Way home.
+          </ion-text>
+          <ion-button color="danger" class="delete-button" (click)="handleDeleteAccount()">
+            Eliminar mi cuenta
+          </ion-button>
+        </div>
+    </div>
+</ion-content>

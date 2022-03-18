@@ -63,6 +63,7 @@ export class RegisteredPagePage implements OnInit {
       console.log(response)
       await login.dismiss();
       this.storage.setUserData(response);
+      this.user.setUserData(response);
       this.router.navigateByUrl('/tabsPage', {replaceUrl: true});
     },
     async (response) =>{
