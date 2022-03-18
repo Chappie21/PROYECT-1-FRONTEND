@@ -48,7 +48,7 @@ export class LoginPagePage implements OnInit {
           this.storage.setUserData(response);
           this.autenticate.setToken(response.access_token);
           this.userService.setUserData(response);
-          this.router.navigateByUrl('/tabsPage', {replaceUrl: true});
+          this.router.navigateByUrl('/tabsPage/home', {replaceUrl: true});
       },
       async (response) => {
         await loading.dismiss()

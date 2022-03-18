@@ -1,0 +1,21 @@
+$primary: #7912ad;
+$secondary: #cc6cfc;
+
+.main{
+    height: 100%;
+    padding: 3%;
+}
+
+.welcomeCard{
+    width: 100%;
+    height: 9rem;
+    padding: 3%;
+    background: linear-gradient($primary, $secondary);
+    border: 0.5rem transparent;
+    border-radius: 0.5rem;
+    display: flex;
+}
+
+.moviesContent{
+    margin-top: 5%;
+}
