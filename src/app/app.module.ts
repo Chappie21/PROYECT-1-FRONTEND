@@ -26,7 +26,6 @@ import { HomePageModule } from './views/home/home.module';
     ChangePassowrdPage,
     ChangeProfilePhotoPage,
     ProfilePhotoComponent,
-    UserProfilePage,
     DeleteAccountPage,
   ],
   entryComponents: [],
@@ -38,7 +37,8 @@ import { HomePageModule } from './views/home/home.module';
     HttpClientModule, 
     ReactiveFormsModule,
     FormsModule,
-    HomePageModule
+    HomePageModule,
+    UserProfilePageModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HttpClientModule],
   bootstrap: [AppComponent],

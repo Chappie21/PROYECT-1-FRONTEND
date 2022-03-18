@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">PeliTacos</string>
+    <string name="title_activity_main">PeliTacos</string>
+    <string name="package_name">peli.tacos.net.net</string>
+    <string name="custom_url_scheme">peli.tacos.net.net</string>
+</resources>

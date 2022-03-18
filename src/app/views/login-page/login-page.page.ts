@@ -13,8 +13,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class LoginPagePage implements OnInit {
 
-
-  protected form:FormGroup
+  public form:FormGroup
 
   constructor(
     private autenticate:AuthenticateService,
@@ -36,7 +35,7 @@ export class LoginPagePage implements OnInit {
   }
 
   // Proceso de logIn del usuario
-  protected async handleLogin () {
+  public async handleLogin () {
       let loading = await this.controllerService.createLoading();
 
       await loading.present(); // Activar componente con animacion de carga

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class RegisteredPagePage implements OnInit {
 
 
-  protected registeredForm:FormGroup;
+  public registeredForm:FormGroup;
   
   constructor(
     private user: UserService,
@@ -45,15 +45,15 @@ export class RegisteredPagePage implements OnInit {
     }
   }
 
-  protected displayErrors(FormName:string): boolean{
+  public displayErrors(FormName:string): boolean{
     return this.registeredForm.controls[FormName].invalid && (this.registeredForm.controls[FormName].dirty || this.registeredForm.controls[FormName].touched);
   }
 
-  protected passwordsMatchValidator(): boolean{
+  public passwordsMatchValidator(): boolean{
     return this.registeredForm.get('clave').value === this.registeredForm.get('confirmClave').value
   }
 
-  protected async handleRegisterdUser(){
+  public async handleRegisterdUser(){
     let login = await this.controller.createLoading()
     const formData = this.getFormData(); // datos del formulario
 
