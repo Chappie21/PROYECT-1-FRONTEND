@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: 'loginPage',
     loadChildren: () => import('./views/login-page/login-page.module').then( m => m.LoginPagePageModule),
-    canLoad: [LoginGuardGuard]
+    // canLoad: [LoginGuardGuard]
   },
   {
     path: 'registeredPage',
@@ -24,12 +24,12 @@ const routes: Routes = [
   {
     path: 'tabsPage',
     loadChildren: () => import('./views/dashboard-tabs/dashboard-tabs.module').then( m => m.DashboardTabsPageModule),
-    canLoad: [TabsPageGuardGuard]
+    // canLoad: [TabsPageGuardGuard]
   },
   {
     path: 'home',
     loadChildren: () => import('./views/home/home.module').then( m => m.HomePageModule)
-  }
+  },
 ];
 
 @NgModule({

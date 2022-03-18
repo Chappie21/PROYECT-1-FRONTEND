@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar class="ion-align-items-center">
+    <ion-title>{{movieTitle}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closePageModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-container">
+
+    <div class="coverMovie">
+      <img [src]="movieData.portada" />
+      <ion-text><h3>{{movieTitle}}</h3></ion-text>
+    </div>
+
+    <div class="info">
+        <div class="rating">
+            <img src="../../../assets/images/logo.png"/>
+            <ion-text class="ion-margin-start">
+              <h3>{{movieData.calificacion}}  %</h3>
+            </ion-text>
+        </div>
+
+        <ion-text class="ion-text-justify">
+          <p>{{movieData.descripcion}}</p>
+        </ion-text>
+    </div>
+
+    <div class="otherInformation">
+      <ion-grid class="ion-justify-content-center">
+        <ion-row class="ion-justify-content-center">
+            <ion-col size="3">
+              <ion-text>
+                <p>genero:</p>
+              </ion-text>
+            </ion-col>
+            <ion-col>
+              <ion-text size="3">
+                <p>{{movieData.genero}}</p>
+              </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+            <ion-col size="3">
+              <ion-text>
+                <p>director:</p>
+              </ion-text>
+            </ion-col>
+            <ion-col>
+              <ion-text size="3">
+                <p>{{movieData.director}}</p>
+              </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="3">
+            <ion-text>
+              <p>duracion:</p>
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text size="3">
+              <p>{{movieData.duracion}}</p>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="3">
+            <ion-text>
+              <p>estreno:</p>
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text size="3">
+              <p>{{movieData.fechaEstreno}}</p>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <ion-slides [options]="slidersConfig">
+      <ion-slide *ngFor="let trailer of movieData.imagenes">
+        <ion-img [src]="trailer"></ion-img>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

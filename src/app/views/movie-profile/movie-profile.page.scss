@@ -1,0 +1,56 @@
+.main-conatiner{
+    padding: 5%;
+    height: 100%;
+}
+
+.coverMovie{
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: url(../../../assets/images/patterOpacity.png) rgb(107, 105, 105);
+
+    img{
+        width: 45%;
+        height: 55%;
+    }
+}
+
+.info{
+    padding: 5%;
+}
+
+.rating{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-left: 5%;
+
+    img{
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+.otherInformation{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .coverMovie{
+        padding: 5%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: url(../../../assets/images/patterOpacity.png) rgb(22, 21, 21);
+    
+        img{
+            width: 45%;
+            height: 55%;
+        }
+    }
+}

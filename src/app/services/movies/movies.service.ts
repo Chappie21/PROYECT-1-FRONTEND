@@ -23,4 +23,8 @@ export class MoviesService {
     return this.http.get(Constants.basePath + 'inicio', this.setHeaderWithSecurity());
   }
 
+  public getMovieById(movieId:string){
+    return this.http.get(`${Constants.basePath}peliculas/ver/${movieId}`, this.setHeaderWithSecurity());
+  }
+
 }

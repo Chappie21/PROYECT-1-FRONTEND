@@ -8,6 +8,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.component';
+import { MovieCardComponentModule } from 'src/app/components/movie-card/movie-card.component.module';
+import { MovieProfilePageModule } from '../movie-profile/movie-profile.module';
 
 @NgModule({
   imports: [
@@ -15,8 +17,10 @@ import { MovieCardComponent } from 'src/app/components/movie-card/movie-card.com
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+    MovieCardComponentModule,
+    MovieProfilePageModule
   ],
-  declarations: [HomePage, MovieCardComponent],
+  declarations: [HomePage],
   entryComponents: [MovieCardComponent]
 })
 export class HomePageModule {}
