@@ -4,6 +4,7 @@ import { User } from 'src/app/interfaces/user';
 import { ControllerService } from 'src/app/services/controllers/controller.service';
 import { MoviesService } from 'src/app/services/movies/movies.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { MovieProfilePage } from '../movie-profile/movie-profile.page';
 
 @Component({
   selector: 'app-home',
@@ -70,6 +71,18 @@ export class HomePage implements OnInit {
 
   private SelectRandomComentary():string{
      return this.randomCommentarys[Math.floor(Math.random() * this.randomCommentarys.length)];
+  }
+
+  // Obtener Pelicula seleccionada por el usuario
+  public async movieTouched(movieEmmitter){
+      const modal = await this.controllerService.createModal({
+        component: MovieProfilePage,
+        componentProps: {
+            movieId: movieEmmitter.movieId,
+            movieTitle: movieEmmitter.movieTitle 
+        }
+      });
+      modal.present();
   }
 
 }

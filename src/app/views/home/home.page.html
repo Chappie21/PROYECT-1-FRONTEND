@@ -17,9 +17,11 @@
       <ion-slides [options]="slidersConfig">
         <ion-slide *ngFor="let movie of movies">
           <app-movie-card
+            [movieId]="movie.idPelicula"
             [cover]="movie.portada"
             [title]="movie.nombre"
             [rating]="movie.calificacion"
+            (touchCard)="movieTouched($event)"
           >
           </app-movie-card>
         </ion-slide>
@@ -30,9 +32,11 @@
       <ion-slides [options]="slidersConfig">
         <ion-slide *ngFor="let movie of bestMovies">
           <app-movie-card
+            [movieId]="movie.idPelicula"
             [cover]="movie.portada"
             [title]="movie.nombre"
             [rating]="movie.calificacion"
+            (touchCard)="movieTouched($event)"
           >
           </app-movie-card>
         </ion-slide>

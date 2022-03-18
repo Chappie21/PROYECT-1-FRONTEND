@@ -17,16 +17,16 @@ import { UserProfilePageModule } from './views/user-profile/user-profile.module'
 import { UserProfilePage } from './views/user-profile/user-profile.page';
 import { DeleteAccountPage } from './views/delete-account/delete-account.page';
 import { HomePageModule } from './views/home/home.module';
+import { DeleteAccountPageModule } from './views/delete-account/delete-account.module';
+import { ConfigureMenuPageModule } from './views/configure-menu/configure-menu.module';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    ConfigureMenuPage, 
     EditBasicDataPage, 
     ChangePassowrdPage,
     ChangeProfilePhotoPage,
     ProfilePhotoComponent,
-    DeleteAccountPage,
   ],
   entryComponents: [],
   imports: [
@@ -38,7 +38,9 @@ import { HomePageModule } from './views/home/home.module';
     ReactiveFormsModule,
     FormsModule,
     HomePageModule,
-    UserProfilePageModule
+    UserProfilePageModule,
+    DeleteAccountPageModule,
+    ConfigureMenuPageModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HttpClientModule],
   bootstrap: [AppComponent],
