@@ -35,7 +35,7 @@
             <ion-label color="medium" class="ion-text-center" routerLink="/registeredPage">
               ¿Aun no tienes cuenta?
             </ion-label>
-            <ion-button color="primary" class="ion-margin-top" [disabled]="!form.valid">
+            <ion-button color="primary" class="ion-margin-top" [disabled]="!form.valid" (click)="handleLogin()">
               Iniciar sesion
             </ion-button>
 

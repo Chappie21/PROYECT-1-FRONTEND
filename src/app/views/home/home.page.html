@@ -1,20 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <div class="main">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <!-- Banner de bienvenida -->
+    <div class="welcomeCard">
+      <ion-text>
+          <h1>Hola, {{userData.nombre}}</h1>
+          <h3>{{comentary}}</h3>
+      </ion-text>
+    </div>
 
-  <div id="container">
-    <strong>My first App with Ionic Framework</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <!-- Peliculas mas recientes-->
+    <div class="moviesContent">
+      <ion-text>
+        <h2>Peliculas recientes</h2>
+      </ion-text>
+      <ion-slides [options]="slidersConfig">
+        <ion-slide *ngFor="let movie of movies">
+          <app-movie-card
+            [movieId]="movie.idPelicula"
+            [cover]="movie.portada"
+            [title]="movie.nombre"
+            [rating]="movie.calificacion"
+            (touchCard)="movieTouched($event)"
+          >
+          </app-movie-card>
+        </ion-slide>
+      </ion-slides>
+      <ion-text>
+        <h2>Peliculas mejor votadas</h2>
+      </ion-text>
+      <ion-slides [options]="slidersConfig">
+        <ion-slide *ngFor="let movie of bestMovies">
+          <app-movie-card
+            [movieId]="movie.idPelicula"
+            [cover]="movie.portada"
+            [title]="movie.nombre"
+            [rating]="movie.calificacion"
+            (touchCard)="movieTouched($event)"
+          >
+          </app-movie-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
   </div>
 </ion-content>

@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar class="ion-align-items-center">
+    <ion-buttons slot="start" class="ion-align-items-center" (click)="closePageModal()">
+      <ion-icon name="chevron-back-outline" size="medium" slot="start"></ion-icon>
+      <ion-text>Atras</ion-text>
+    </ion-buttons>
+    <ion-title>Editar Datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+   <form [formGroup]="editForm">
+    <ion-list class="list-inputs">
+      <ion-item>
+          <ion-input
+            formControlName="nombre"
+            placeholder="Primer nombre"
+            inputmode="text"
+            type="text"
+            maxlength="20"
+            required="true"
+            [value]="userData.nombre"
+          >
+          </ion-input>
+
+          <div *ngIf="displayErrors('nombre')" class="error-message">
+            <ion-label 
+              *ngIf="editForm.controls['nombre'].errors.required"
+              color="danger"
+            >
+              Nombre requerido
+            </ion-label>
+            <ion-label 
+              *ngIf="editForm.controls['nombre'].errors.pattern"
+              color="danger"
+            >
+              Nombre no valido
+            </ion-label>
+          </div>
+
+      </ion-item>
+      <ion-item class="ion-margin-top">
+          <ion-input
+            formControlName="apellido"
+            placeholder="Primer apellido"
+            inputmode="text"
+            type="text"
+            maxlength="20"
+            required="true"
+            [value]="userData.apellido"
+          >
+          </ion-input>
+
+          <div *ngIf="displayErrors('apellido')" class="error-message">
+            <ion-label 
+              *ngIf="editForm.controls['apellido'].errors.required"
+              color="danger"
+            >
+              Nombre requerido
+            </ion-label>
+            <ion-label 
+              *ngIf="editForm.controls['apellido'].errors.pattern"
+              color="danger"
+            >
+              Nombre no valido
+            </ion-label>
+          </div>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+          <ion-input
+            formControlName="email"
+            placeholder="Email"
+            inputmode="email"
+            type="email"
+            required="true"
+            [value]="userData.email"
+          >
+        </ion-input>
+
+        <div *ngIf="displayErrors('email')" class="error-message">
+          <ion-label 
+            *ngIf="editForm.controls['email'].errors.required"
+            color="danger"
+          >
+            Email requerido
+          </ion-label>
+          <ion-label 
+            *ngIf="editForm.controls['email'].errors.email"
+            color="danger"
+          >
+            Email no valido
+          </ion-label>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div class="button-content">
+        <ion-button color="danger" (click)="closePageModal()">Cancelar</ion-button>
+        <ion-button [disabled]="!editForm.valid" (click)="handleEditData()">Actualizar</ion-button>
+    </div>
+
+   </form>
+</ion-content>

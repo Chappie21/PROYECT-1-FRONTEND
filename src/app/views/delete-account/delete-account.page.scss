@@ -1,0 +1,43 @@
+.delete-button{
+    margin-top: 10%;
+}
+
+.main-container{
+    height: 100%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(../../../assets/images/patterOpacity.png);
+}
+
+.text{
+    color: white;
+}
+
+.card{
+    height: 35%;
+    width: 95%;
+    background-color: rgb(194, 16, 16);
+    padding: 5%;
+    border: 2rem transparent;
+    border-radius: 0.5rem;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: cardAnimation 2s;
+}
+
+@keyframes cardAnimation {
+    
+    from {
+        margin-top: 100%;
+    }
+    
+    to {
+       margin-top: 0%;
+    }
+
+}
