@@ -46,6 +46,12 @@ export class AuthenticateService {
     return this.http.post(Constants.basePath + 'usuario/autenticar', body, this.setHeaders())
   }
 
+  public deleteSession(){
+    localStorage.removeItem('USER');
+    localStorage.removeItem('TOKEN');
+    this.token = null;
+  }
+
   // Establecer token de sesion
   public setToken(token: string){
     localStorage.setItem('TOKEN', token);

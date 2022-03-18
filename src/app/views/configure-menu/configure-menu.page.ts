@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ControllerService } from 'src/app/services/controllers/controller.service';
 import { ChangePassowrdPage } from '../change-passowrd/change-passowrd.page';
 import { ChangeProfilePhotoPage } from '../change-profile-photo/change-profile-photo.page';
+import { DeleteAccountPage } from '../delete-account/delete-account.page';
 import { EditBasicDataPage } from '../edit-basic-data/edit-basic-data.page';
 
 @Component({
@@ -37,5 +38,22 @@ export class ConfigureMenuPage implements OnInit {
   public async openChangeProfilePhoto(){
     const modal = await this.controller.createModal({component: ChangeProfilePhotoPage});
     modal.present();
+  }
+
+  public async openDeleteAccount(){
+    const modal = await this.controller.createModal(
+      {
+        component: DeleteAccountPage,
+      }
+    );
+    modal.present();
+
+    // En caso de eliminar la cuenta cierra tambien el modal principal
+    modal.onDidDismiss().then(() =>{
+        const user = localStorage.getItem('USER');
+        if(!user){
+          this.closePageModal();
+        }
+    })
   }
 }

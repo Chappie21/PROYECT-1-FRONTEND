@@ -35,7 +35,11 @@
           <ion-icon name="lock-closed-outline" size="large" slot="start"></ion-icon>
           <ion-text>Cambiar clave</ion-text>
       </ion-item>
-      <ion-item button class="ion-align-items-center ion-justify-content-between">
+      <ion-item 
+        button 
+        class="ion-align-items-center ion-justify-content-between"
+        (click)="openDeleteAccount()"
+      >
           <ion-icon name="close-circle-outline" size="large" slot="start" color="danger"></ion-icon>
           <ion-text color="danger">Eliminar cuenta</ion-text>
           <ion-icon name="chevron-forward-outline" size="small" slot="end" color="danger"></ion-icon>
