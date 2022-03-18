@@ -25,11 +25,11 @@ const routes: Routes = [
     path: 'tabsPage',
     loadChildren: () => import('./views/dashboard-tabs/dashboard-tabs.module').then( m => m.DashboardTabsPageModule),
     //canLoad: [TabsPageGuardGuard]
-  },  {
+  },
+  {
     path: 'home',
     loadChildren: () => import('./views/home/home.module').then( m => m.HomePageModule)
-  },
-
+  }
 ];
 
 @NgModule({
