@@ -16,20 +16,13 @@ export class LoginGuardGuard implements CanLoad {
 
   // Comprobar existencia de sesion
   canLoad(): Observable<boolean> {
-
-    const hasSeenIntro = localStorage.getItem('TOKEN');
-
     return this.authenticate.isAuthenticated.pipe(
       filter(val => val !== null),
       take(1),
       map(isAuthenticated => {
         if (isAuthenticated) {
-          this.router.navigateByUrl('tabsPage', { replaceUrl: true });
+          this.router.navigateByUrl('tabsPage/home', { replaceUrl: true });
           return false;
-        }
-        else if (!!!hasSeenIntro) {
-          this.router.navigateByUrl('loginPage', { replaceUrl: true });
-          return false
         }
         else {
           return true;

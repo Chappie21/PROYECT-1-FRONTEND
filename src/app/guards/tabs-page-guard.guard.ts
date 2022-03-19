@@ -17,8 +17,6 @@ export class TabsPageGuardGuard implements CanLoad {
   // Comprobar existencia de sesion
   canLoad(): Observable<boolean> {
 
-    const hasSeenIntro = localStorage.getItem('TOKEN');
-
     return this.authenticate.isAuthenticated.pipe(
       filter(val => val !== null),
       take(1),

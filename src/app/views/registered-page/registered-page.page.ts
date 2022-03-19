@@ -4,6 +4,7 @@ import { ControllerService } from 'src/app/services/controllers/controller.servi
 import { UserService } from 'src/app/services/user/user.service';
 import { StorageService } from 'src/app/services/storage/storage.service';
 import { Router } from '@angular/router';
+import { AuthenticateService } from 'src/app/services/auth/authenticate.service';
 
 @Component({
   selector: 'app-registered-page',
@@ -18,7 +19,7 @@ export class RegisteredPagePage implements OnInit {
   constructor(
     private user: UserService,
     private controller: ControllerService,
-    private storage: StorageService,
+    private authService:AuthenticateService,
     private router: Router,
   ) { }
 
@@ -62,8 +63,8 @@ export class RegisteredPagePage implements OnInit {
     .subscribe(async (response)=>{
       console.log(response)
       await login.dismiss();
-      this.storage.setUserData(response);
       this.user.setUserData(response);
+      this.authService.setToken(response.access_token);
       this.router.navigateByUrl('/tabsPage/home', {replaceUrl: true});
     },
     async (response) =>{

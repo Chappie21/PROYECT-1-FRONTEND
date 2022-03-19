@@ -47,9 +47,9 @@ export class AuthenticateService {
   }
 
   public deleteSession(){
-    localStorage.removeItem('USER');
-    localStorage.removeItem('TOKEN');
+    localStorage.clear();
     this.token = null;
+    this.isAuthenticated.next(false);
   }
 
   // Establecer token de sesion
