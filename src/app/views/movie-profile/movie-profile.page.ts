@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MovieProfile } from 'src/app/interfaces/MovieProfile';
 import { ControllerService } from 'src/app/services/controllers/controller.service';
 import { MoviesService } from 'src/app/services/movies/movies.service';
+import { YoutubeVideoPlayer } from '@awesome-cordova-plugins/youtube-video-player/ngx';
 
 @Component({
   selector: 'app-movie-profile',
@@ -35,7 +36,8 @@ export class MovieProfilePage implements OnInit {
 
   constructor(
     private controller:ControllerService,
-    private movieService:MoviesService
+    private movieService:MoviesService,
+    private youtubeService:YoutubeVideoPlayer
   ) { }
 
   ngOnInit() {
@@ -51,6 +53,7 @@ export class MovieProfilePage implements OnInit {
       .subscribe(
         (response:MovieProfile) =>{
           this.movieData = response;
+          console.log(this.movieData)
           loading.dismiss();
         },
         async (response) =>{
@@ -71,5 +74,18 @@ export class MovieProfilePage implements OnInit {
     })
   }
 
+  public getDate(date:string):string{
+    const dateMovie = new Date(date);
+    return `${dateMovie.getDay()}-${dateMovie.getMonth()}-${dateMovie.getFullYear()}`;
+  }
+
+  public getYoutubeTrailerImage(url:string){
+      return url.replace('www', 'img').replace('watch?v=', 'vi/').concat('/0.jpg');
+  }
+
+  // Abrir APP de youtube para visualziar trailer
+  public goToYoutubeVideo(url:string){
+    this.youtubeService.openVideo(url);
+  }
 
 }

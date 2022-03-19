@@ -10,10 +10,13 @@
 <ion-content>
   <div class="main-container">
 
-    <div class="coverMovie">
-      <img [src]="movieData.portada" />
-      <ion-text><h3>{{movieTitle}}</h3></ion-text>
+    <div>
+      <img class="coverMovie" [src]="movieData.portada" />
     </div>
+
+    <ion-text class="ion-text-center">
+      <h3>{{movieTitle}}</h3>
+    </ion-text>
 
     <div class="info">
         <div class="rating">
@@ -29,11 +32,11 @@
     </div>
 
     <div class="otherInformation">
-      <ion-grid class="ion-justify-content-center">
+      <ion-grid class="ion-text-center">
         <ion-row class="ion-justify-content-center">
             <ion-col size="3">
               <ion-text>
-                <p>genero:</p>
+                <p>Genero:</p>
               </ion-text>
             </ion-col>
             <ion-col>
@@ -45,7 +48,7 @@
         <ion-row class="ion-justify-content-center">
             <ion-col size="3">
               <ion-text>
-                <p>director:</p>
+                <p>Director:</p>
               </ion-text>
             </ion-col>
             <ion-col>
@@ -57,7 +60,7 @@
         <ion-row class="ion-justify-content-center">
           <ion-col size="3">
             <ion-text>
-              <p>duracion:</p>
+              <p>Duracion:</p>
             </ion-text>
           </ion-col>
           <ion-col>
@@ -69,22 +72,45 @@
         <ion-row class="ion-justify-content-center">
           <ion-col size="3">
             <ion-text>
-              <p>estreno:</p>
+              <p>Estreno:</p>
             </ion-text>
           </ion-col>
           <ion-col>
             <ion-text size="3">
-              <p>{{movieData.fechaEstreno}}</p>
+              <p>{{getDate(movieData.fechaEstreno)}}</p>
             </ion-text>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
 
-    <ion-slides [options]="slidersConfig">
-      <ion-slide *ngFor="let trailer of movieData.imagenes">
-        <ion-img [src]="trailer"></ion-img>
-      </ion-slide>
-    </ion-slides>
+    <ion-text class="ion-margin-left">
+      <h3>Imagenes de la pelicula</h3>   
+    </ion-text>
+
+    <div class="ion-margin-top">
+      <ion-slides [options]="slidersConfig">
+        <ion-slide *ngFor="let trailer of movieData.imagenes">
+          <ion-img [src]="trailer"></ion-img>
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+
+    <ion-text class="ion-margin-left">
+      <h3>Trailers</h3>   
+    </ion-text>
+
+    <div class="ion-margin-top">
+      <ion-slides [options]="slidersConfig" class="ion-margin-top">
+        <ion-slide *ngFor="let trailer of movieData.trailers">
+          <ion-img 
+            [src]="getYoutubeTrailerImage(trailer)"
+            (click)="goToYoutubeVideo(trailer)"
+          >
+          </ion-img>
+        </ion-slide>
+      </ion-slides>
+    </div>
   </div>
 </ion-content>

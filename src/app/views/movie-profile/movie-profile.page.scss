@@ -1,19 +1,13 @@
 .main-conatiner{
     padding: 5%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .coverMovie{
-    padding: 5%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background: url(../../../assets/images/patterOpacity.png) rgb(107, 105, 105);
-
-    img{
-        width: 45%;
-        height: 55%;
-    }
+    width: 100%;
 }
 
 .info{
@@ -39,18 +33,6 @@
     justify-content: center;
 }
 
-
-@media (prefers-color-scheme: dark) {
-    .coverMovie{
-        padding: 5%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        background: url(../../../assets/images/patterOpacity.png) rgb(22, 21, 21);
-    
-        img{
-            width: 45%;
-            height: 55%;
-        }
-    }
+.trailers{
+    margin-left: 50%;
 }

@@ -19,6 +19,7 @@ import { DeleteAccountPage } from './views/delete-account/delete-account.page';
 import { HomePageModule } from './views/home/home.module';
 import { DeleteAccountPageModule } from './views/delete-account/delete-account.module';
 import { ConfigureMenuPageModule } from './views/configure-menu/configure-menu.module';
+import { YoutubeVideoPlayer } from '@awesome-cordova-plugins/youtube-video-player/ngx';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { ConfigureMenuPageModule } from './views/configure-menu/configure-menu.m
     DeleteAccountPageModule,
     ConfigureMenuPageModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HttpClientModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HttpClientModule, YoutubeVideoPlayer],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
